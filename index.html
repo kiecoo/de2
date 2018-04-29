@@ -2,7 +2,7 @@
 
 
 
-//Version v11-0-(way2)-----(CPS)
+//Version v11-0-(way2)-----(CPS) foreach
 <!doctype html>	
 	<html>
 	  <head>
@@ -136,15 +136,17 @@
            function next (x_data) {
 		    //var element1 = bel`<div>${data.map(x => bel`<p>${x.user}</p>`)}</div>`
 		    //done(element1)
+		   x_data.forEach(putEl)
 		   
+		   function putEl(y_data){
 		   var el = bel`
 			    <div class=${css.card} onmouseenter=${hoverCard} onmouseleave=${unhoverCard}>
 			      ${cardContainer}
 			    </div>
 			  `
 		   
-			  var ninasProfile      = x_data[0]
-			  var username          = ninasProfile.username
+			 
+			  var username          = y_data.username
 			  var name              = 'Nina'
 			  var cardText          = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru '
 			  var imageUrl          = 'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
@@ -188,8 +190,9 @@
 				    el.removeChild(cardContainer_hover)
 				    el.appendChild(cardContainer)
 				  }
-		   
+		            
 		    fx_done(el)
+			   }
             }
 		
 	    function getGithubData (fy_next) {
